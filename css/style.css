@@ -1,0 +1,30 @@
+#chat{
+  margin-top: 20px;
+}
+
+
+.mensagem-position{
+  margin-right: 79px;
+}
+.name-position{
+  margin-right: 94px;
+}
+/* codigo do chat */
+.chat{
+  padding: 0;
+}
+.chat li{
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+.chat li.left .chat-body{
+  margin-left: 70px;
+}
+.chat li.right .chat-body{
+  text-align: right;
+  margin-left: 70px;
+}
+.painel-body{
+  overflow-y: scroll !important;
+  height: 600px !important;
+}
