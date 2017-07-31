@@ -204,3 +204,9 @@ router.map({
 
 //iniciar a execucao da rota
 router.start(appComponent, "#app");
+
+
+/*
+	COMANDO PARA TERMINAL PARA LIMPAR TODAS MENSAGENS DA SALA PELO SEU ID
+	curl -X DELETE 'https://vue-js-firebase-20c0a.firebaseio.com/chat/rooms/001/messages.json'
+*/
