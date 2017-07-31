@@ -1,8 +1,13 @@
 #chat{
   margin-top: 40px;
 }
-
-
+.chat-scroll{position: absolute; top:0px; bottom: 0px; overflow-y: auto;}
+.left p{
+  margin-left: 60px;
+}
+.left .chat-body strong{
+  margin-left: 50px;
+}
 .mensagem-position{
   margin-right: 194px;
 }

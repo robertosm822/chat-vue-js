@@ -15,7 +15,7 @@ var chatComponent = Vue.extend({
                   <div class="panel-heading">
                     <h3 class="panel-title">CHAT </h3>
                   </div>
-                  <div class="panel-body painel-body">
+                  <div class="panel-body painel-body" id="chat-scroll">
                     <ul class="chat list-unstyled">
                       <li class="clearfix" v-bind:class="{left: !isUser(o.email), right: isUser(o.email)}"  v-for="o in messages">
                           <div v-bind:class="{'pull-left':  !isUser(o.email), 'pull-right': isUser(o.email)}">
@@ -33,7 +33,9 @@ var chatComponent = Vue.extend({
                   <div class="panel-footer">
                     <div class="input-group form-group col-md-12">
                       <input  type="text" class="form-control left"
-                          placeholder="Digite sua mensagem" v-model="message" name="" value="" @keyup.enter="sendMessage">
+                          placeholder="Digite sua mensagem" v-model="message" name="message" value=""
+                          data-toggle="tooltip" data-placement="top" title="Digite uma mensagem!"
+                          @keyup.enter="sendMessage" require>
                       <span class="input-group-btn">
                         <button type="submit" class="btn btn-success btn-md" @click="sendMessage">ENVIAR</button>
                       </span>
@@ -61,12 +63,22 @@ var chatComponent = Vue.extend({
           return this.user.email == email;
         },
         sendMessage: function(){
-          this.$firebaseRefs.messages.push({
-            name: this.user.name,
-            email: this.user.email,
-            text: this.message,
-            photo: this.user.photo
-          });
+            var conteudo = $('input[name="message"]').val();
+      			//console.log(conteudo);
+      			if(conteudo.length > 1){
+      				$('[data-toggle="tooltip"]').tooltip('hide');
+      				this.$firebaseRefs.messages.push({
+      					name: this.user.name,
+      					email: this.user.email,
+      					text: this.message,
+      					photo: this.user.photo
+      				  });
+      				  $('input[name="message"]').val("")
+      				  rolagemAuto();
+
+      			} else {
+      				$('[data-toggle="tooltip"]').tooltip('show');
+      			}
         }
       }
 
@@ -120,8 +132,7 @@ var roomsComponent = Vue.extend({
                 rooms: [
                   {id: "001", name: "PHP", description: "Aprendendo PHP"},
                   {id: "002", name: "Java", description: "Padrões de Desenvolvimento"},
-                  {id: "003", name: "C#", description: "Desenvolvimento orientado a performance"},
-                  {id: "004", name: "Javascript", description: "Dominando a internet"}
+                  {id: "003", name: "C#", description: "Desenvolvimento orientado a performance"}
                 ],
                 name: '',
                 email: '',
