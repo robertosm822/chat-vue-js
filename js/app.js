@@ -1,4 +1,3 @@
-var Vue = Vue || require('vue');
 
 var chatComponent = Vue.extend({
   template: `<div class="panel panel-primary">
