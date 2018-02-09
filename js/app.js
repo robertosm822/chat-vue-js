@@ -1,11 +1,6 @@
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyDazoogn_XOam13nNBx112t5Yvkmb0adFU",
-  authDomain: "vue-js-firebase-20c0a.firebaseapp.com",
-  databaseURL: "https://vue-js-firebase-20c0a.firebaseio.com",
-  projectId: "vue-js-firebase-20c0a",
-  storageBucket: "vue-js-firebase-20c0a.appspot.com",
-  messagingSenderId: "589127198771"
+ 
 };
 var firebaseApp = firebase.initializeApp(config);
 var db = firebaseApp.database();
